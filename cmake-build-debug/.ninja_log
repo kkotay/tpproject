@@ -1,0 +1,11 @@
+# ninja log v5
+1	601	7321102352320329	build.ninja	c959768a67245f74
+20	1125	7320467059198825	CMakeFiles/mydesmos.dir/gometry/src/ray.cpp.obj	4b248f9e73865cb0
+4	1046	7320613733181365	CMakeFiles/mydesmos.dir/main.cpp.obj	a76da5405fc9e3c8
+1122	2011	7320613742722039	mydesmos.exe	5d8b577974405865
+4	1116	7320467059103012	CMakeFiles/mydesmos.dir/gometry/src/polygon.cpp.obj	13f29d252fbff05b
+16	1112	7320467059061478	CMakeFiles/mydesmos.dir/gometry/src/point.cpp.obj	d469327627b642d8
+32	1101	7320467058945963	CMakeFiles/mydesmos.dir/gometry/src/vector.cpp.obj	6d22b5cb162dd8d9
+8	1122	7320467059168645	CMakeFiles/mydesmos.dir/gometry/src/circle.cpp.obj	329a600014197f5e
+40	1140	7320467059334373	CMakeFiles/mydesmos.dir/gometry/src/segment.cpp.obj	99c30193b818964b
+24	1176	7320467059701565	CMakeFiles/mydesmos.dir/gometry/src/line.cpp.obj	c8635856e28344be
