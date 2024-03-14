@@ -4,15 +4,15 @@ House::House() {
 
 }
 
-House::House(geometry::Vector, geometry::Point) {
+House::House(sf::Vector2<int64_t>, sf::Vector2<int64_t>) {
 
 }
 
-void House::setSize(geometry::Vector) {
+void House::setSize(sf::Vector2<int64_t>) {
 
 }
 
-void House::setPosition(geometry::Point) {
+void House::setPosition(sf::Vector2<int64_t>) {
 
 }
 

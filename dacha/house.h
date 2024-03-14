@@ -6,14 +6,14 @@
 #include "../gometry/polygon.h"
 class House : public Object {
  protected:
-  geometry::Vector size_;
-  geometry::Point position_;
+  sf::Vector2<int64_t> size_;
+  sf::Vector2<int64_t> position_;
 
  public:
   House();
-  House(geometry::Vector, geometry::Point);
-  void setSize(geometry::Vector);
-  void setPosition(geometry::Point);
+  House(sf::Vector2<int64_t>, sf::Vector2<int64_t>);
+  void setSize(sf::Vector2<int64_t>);
+  void setPosition(sf::Vector2<int64_t>);
   void update() override;
   ~House();
 };

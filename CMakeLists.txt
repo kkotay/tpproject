@@ -33,7 +33,8 @@ add_executable(mydesmos main.cpp
         dacha/Tree.h
         dacha/tree.cpp
         dacha/treeFactory.cpp
-        dacha/dacha.h)
+        dacha/dacha.h
+        dacha/dacha.cpp)
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)

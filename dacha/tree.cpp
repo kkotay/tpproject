@@ -3,10 +3,10 @@
 #include <utility>
 
 Tree::Tree() {
-  figure = new geometry::Circle();
+  figure = new sf::CircleShape();
 }
 
-Tree::Tree(geometry::Point& pon, geometry::Circle& circ, treetype::type type) {
+Tree::Tree(sf::Vector2<int64_t> pon, sf::CircleShape& circ, treetype::type type) {
   figure = &circ;
   pos_ = pon;
   type_ = type;
@@ -16,7 +16,7 @@ void Tree::setSize(int64_t) {
 
 }
 
-void Tree::setPosition(geometry::Point) {
+void Tree::setPosition(sf::Vector2<int64_t>) {
 
 }
 

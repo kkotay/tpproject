@@ -15,14 +15,14 @@ struct treetype {
 class Tree : public Object {
  protected:
   treetype::type type_;
-  geometry::Point pos_;
+  sf::Vector2<int64_t> pos_;
   void setColor(sf::Color);
 
  public:
   Tree();
-  Tree(geometry::Point&, geometry::Circle&, treetype::type type);
+  Tree(sf::Vector2<int64_t>, sf::CircleShape&, treetype::type type);
   void setSize(int64_t);
-  void setPosition(geometry::Point);
+  void setPosition(sf::Vector2<int64_t>);
   void update() override;
   ~Tree();
 };

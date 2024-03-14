@@ -10,6 +10,7 @@ private:
 public:
   Tree MakeTree(treetype::type type);
   House MakeHouse();
+  void update(sf::RenderWindow& window);
 };
 
 
