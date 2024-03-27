@@ -1,3 +1,3 @@
-C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/mydesmos.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/managers.dir
 C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -157,7 +157,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=mydesmos
+CMAKE_PROJECT_NAME:STATIC=managers
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/mingw64/bin/ranlib.exe
@@ -262,6 +262,24 @@ VorbisFile_LIB:FILEPATH=C:/SFML/lib/libvorbisfile.a
 
 //Path to a library.
 Vorbis_LIB:FILEPATH=C:/SFML/lib/libvorbis.a
+
+//Value Computed by CMake
+dacha_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
+
+//Value Computed by CMake
+dacha_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+dacha_SOURCE_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha
+
+//Value Computed by CMake
+managers_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
+
+//Value Computed by CMake
+managers_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+managers_SOURCE_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha
 
 //Value Computed by CMake
 mydesmos_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
