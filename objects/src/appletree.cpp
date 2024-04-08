@@ -10,4 +10,7 @@ AppleTree::AppleTree(sf::Vector2f pon, const Ellipse& crown, sf::Color crowncolo
   trunk_.setFillColor(trunkcolor);
   trunk_.setOutlineThickness(2);
   trunk_.setOutlineColor(trunkcolor - sf::Color(20, 20, 20));
+  topview_ = sf::CircleShape(crown.getRadius().x);
+  topview_.setFillColor(crowncolor);
+  topview_.setOutlineColor(crowncolor - sf::Color(0, 30, 0));
 }

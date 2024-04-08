@@ -11,4 +11,7 @@ FirTree::FirTree(sf::Vector2f pon, const sf::ConvexShape& crown, sf::Color crown
   trunk_.setFillColor(trunkcolor);
   trunk_.setOutlineThickness(2);
   trunk_.setOutlineColor(trunkcolor - sf::Color(20, 20, 20));
+  topview_ = sf::CircleShape(20);
+  topview_.setFillColor(crowncolor);
+  topview_.setOutlineColor(crowncolor - sf::Color(0, 30, 0));
 }

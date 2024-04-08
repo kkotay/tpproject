@@ -2,12 +2,12 @@
 #define DACHA_FIRFACTORY_H
 #include "firtree.h"
 class FirFactory {
-  std::vector<FirTree> firtrees_;
+  std::vector<FirTree*> firtrees_;
 
 public:
   FirFactory() = default;
   FirTree& FirMake(sf::Vector2f& pos);
-  std::vector<FirTree>& GetTrees();
+  std::vector<FirTree*>& GetTrees();
   ~FirFactory() {
     firtrees_.clear();
   }

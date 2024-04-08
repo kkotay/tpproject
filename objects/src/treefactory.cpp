@@ -1,24 +1,23 @@
 #include "../treefactory.h"
 
-Tree& TreeFactory::CreateTree (treetype tree, sf::Vector2f& pos) {
+void TreeFactory::CreateTree (treetype tree, sf::Vector2f& pos) {
   switch (tree) {
     case cedar:
-      return cedarmaker.CedarMake(pos);
+      trees_.push_back(&(cedarmaker.CedarMake(pos)));
+      break;
     case fir:
-      return firmaker.FirMake(pos);
+      trees_.push_back(&(firmaker.FirMake(pos)));
+      break;
     case appletree:
-      return applemaker.AppleMake(pos);
+      trees_.push_back(&(applemaker.AppleMake(pos)));
+      break;
   }
 }
 
-template<class T>
-std::vector<T>& TreeFactory::GetTrees(treetype type) {
-  switch (type) {
-    case cedar:
-      return cedarmaker.GetTrees();
-    case fir:
-      return firmaker.GetTrees();
-    case appletree:
-      return applemaker.GetTrees();
-  }
+std::vector<Object*>& TreeFactory::GetTrees() {
+  return trees_;
+}
+
+void TreeFactory::Clear() {
+  trees_.clear();
 }

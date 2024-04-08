@@ -1,20 +1,28 @@
 #ifndef DACHA_SHADOWMANAGER_H
 #define DACHA_SHADOWMANAGER_H
+
 #include "SFML/Graphics.hpp"
-#include "../objects/object.h"
+#include "../objects/tree.h"
+#include "../objects/house.h"
 #include "../my_gometry/polygon.h"
+
 class ShadowManager {
  protected:
   std::vector<Object*> objects_;
-  sf::ConvexShape allshadow_;
-  sf::ConvexShape HardShadow(sf::ConvexShape&);
-  sf::ConvexShape SoftShadow(sf::ConvexShape&);
+  std::vector<sf::ConvexShape> allshadow_;
+  std::vector<sf::ConvexShape> allsemishadow_;
+  void HardShadow(float);
+  void SoftShadow(float);
 
  public:
-    ShadowManager() = default;
-    sf::ConvexShape& GetShape();
-    ShadowManager(std::vector<Object*>&);
-    void SearchShadow(unsigned int);
-    ~ShadowManager() = default;
+  ShadowManager() = default;
+  std::vector<sf::ConvexShape>& GetAllSh();
+  std::vector<sf::ConvexShape>& GetAllSeSh();
+  explicit ShadowManager(std::vector<Object*>&);
+  void SetObj(std::vector<Object*>&);
+
+  void SearchShadow(float);
+  void Clear();
+  ~ShadowManager() = default;
 };
 #endif

@@ -2,19 +2,23 @@
 #define MYDESMOS_OBJECT_H
 #include <SFML/Graphics.hpp>
 #include "ellipse.h"
+#include <memory>
 
 class Object {
  protected:
   sf::Vector2f pos_;
-  virtual void SearchShadow(unsigned int) const = 0;
+  sf::ConvexShape shadow_;
 
  public:
-  // virtual void update(sf::RenderWindow&) const = 0;
   void setPosition(const sf::Vector2f pos) {
     pos_ = pos;
   };
-
-  virtual void draw(sf::RenderWindow&) const = 0;
-
+  sf::ConvexShape& GetShadow() {
+    return shadow_;
+  }
+  virtual void SearchShadow(float) = 0;
+  virtual void draw(sf::RenderTexture&) const{};
+  virtual void drawtop(sf::RenderTexture&) const{};
 };
+
 #endif

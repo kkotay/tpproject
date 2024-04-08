@@ -9,16 +9,16 @@ namespace geometry {
    private:
     Point a1_;
     Point a2_;
-    int64_t a_ = 0;
-    int64_t b_ = 0;
-    int64_t c_ = 0;
+    float a_ = 0;
+    float b_ = 0;
+    float c_ = 0;
 
    public:
     explicit Ray();
     explicit Ray(const Point& beg, const Point& pon);
     Point Getbeg() const;
     Point Getpon() const;
-    int64_t DistPoint(const Point&) const;
+    float DistPoint(const Point&) const;
     Ray& Move(const Vector &) override;
     bool ContainsPoint(const Point &) const override;
     bool CrossesSegment(const Segment &) const override;

@@ -1,32 +1,30 @@
 #ifndef GOMETRY_VECTOR_H
 #define GOMETRY_VECTOR_H
-#define int64_t float
 #include <iostream>
 #include <cstdint>
 #include <vector>
+#include "point.h"
 
 namespace geometry {
-  class Point;
-
   class Vector {
   private:
-    int64_t x_ = 0;
-    int64_t y_ = 0;
+    float x_ = 0;
+    float y_ = 0;
 
   public:
+    explicit Vector(const geometry::Point &a, const geometry::Point &b);
     explicit Vector() = default;
-    explicit Vector(int64_t, int64_t);
-    explicit Vector(const Point&, const Point&);
-    int64_t Getx() const;
-    int64_t Gety() const;
-    int64_t Scalar(const Vector&) const;
-    int64_t Vectornoe(const Vector&) const;
+    explicit Vector(float, float);
+    float Getx() const;
+    float Gety() const;
+    float Scalar(const Vector&) const;
+    float Vectornoe(const Vector&) const;
     Vector operator+(const Vector&) const;
     Vector operator-(const Vector&) const;
-    Vector& operator*=(int64_t);
-    Vector& operator/=(int64_t);
-    Vector operator*(int64_t) const;
-    Vector operator/(int64_t) const;
+    Vector& operator*=(float);
+    Vector& operator/=(float);
+    Vector operator*(float) const;
+    Vector operator/(float) const;
     Vector operator-() const;
     Vector& operator+=(const Vector&);
     Vector& operator-=(const Vector&);

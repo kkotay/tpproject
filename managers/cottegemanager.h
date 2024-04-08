@@ -8,19 +8,18 @@
 
 class CottageManager {
  private:
-  sf::RenderWindow& window_;
-  TreeFactory trFactory_;
-  HouseFactory hFactory_;
-  ShadowManager shadows_;
-  Drawer drawer_;
-  std::vector<Object*> allobjects_;
+  sf::RenderTexture& window_;
+  TreeFactory trFactory_{};
+  HouseFactory hFactory_{};
+  Drawer drawer_{};
+  ShadowManager shadows_{};
+  float angle_ = 0;
   void Command();
 
  public:
+  void Run();
   CottageManager() = default;
-  CottageManager(sf::RenderWindow&);
+  explicit CottageManager(sf::RenderTexture&);
   ~CottageManager() = default;
 };
-
-
 #endif

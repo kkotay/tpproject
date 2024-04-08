@@ -26,7 +26,7 @@ namespace geometry {
     return *this;
   }
 
-  int64_t Ray::DistPoint(const Point& pon) const {
+  float Ray::DistPoint(const Point& pon) const {
     return a_ * pon.Getx() + b_ * pon.Gety() + c_;
   }
 
@@ -48,13 +48,13 @@ namespace geometry {
     }
     if (DistPoint(seg.Geta1()) * DistPoint(seg.Geta2()) < 0) {
       Line lin1 = Line(seg.Geta1(), seg.Geta2());
-      int64_t a1 = lin1.Geta();
-      int64_t b1 = lin1.Getb();
-      int64_t c1 = lin1.Getc();
+      float a1 = lin1.Geta();
+      float b1 = lin1.Getb();
+      float c1 = lin1.Getc();
 
-      int64_t det = a1 * b_ - a_ * b1;
-      int64_t detx = b1 * c_ - b_ * c1;
-      int64_t dety = c1 * a_ - c_ * a1;
+      float det = a1 * b_ - a_ * b1;
+      float detx = b1 * c_ - b_ * c1;
+      float dety = c1 * a_ - c_ * a1;
       if (((a2_.Getx() - a1_.Getx()) * (detx - a1_.Getx() * det) +
       (a2_.Gety() - a1_.Gety()) * (dety - a1_.Gety() * det)) * det
       > 0) {
