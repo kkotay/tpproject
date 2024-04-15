@@ -4,13 +4,11 @@
 #include <SFML/Graphics.hpp>
 
 
-class Tree : protected Object {
+class Tree : public Object {
  protected:
   sf::ConvexShape crown_{};
   sf::ConvexShape trunk_{};
-  sf::ConvexShape crownshadow_{};
-  sf::ConvexShape trunkshadow_{};
-  void SearchShadow(unsigned int) const override;
+  sf::CircleShape topview_{};
 
  public:
   Tree() = default;
@@ -18,8 +16,10 @@ class Tree : protected Object {
   void SetBorderCrownColor(sf::Color);
   void SetTrunkColor(sf::Color);
   void SetBorderTrunkColor(sf::Color);
-  Tree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color);
-  void draw(sf::RenderWindow&) const override;
+  Tree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color, float);
+  void draw(sf::RenderTexture&) const override;
+  void drawtop(sf::RenderTexture&) const override;
+  void SearchShadow(float) override;
   ~Tree() = default;
 };
 

@@ -12,19 +12,19 @@ namespace geometry {
     pon2_ = b1;
   };
 
-  int64_t Line::Geta() const {
+  float Line::Geta() const {
     return a_;
   }
 
-  int64_t Line::Getb() const {
+  float Line::Getb() const {
     return b_;
   }
 
-  int64_t Line::Getc() const {
+  float Line::Getc() const {
     return c_;
   }
 
-  int64_t Line::DistPoint(const Point& pon) const {
+  float Line::DistPoint(const Point& pon) const {
     return (a_ * pon.Getx() + b_ * pon.Gety() + c_);
   }
 
@@ -40,8 +40,8 @@ namespace geometry {
   }
 
   bool Line::CrossesSegment(const Segment& seg) const {
-    int64_t k1 = a_ * seg.Geta1().Getx() + b_ * seg.Geta1().Gety() + c_;
-    int64_t k2 = a_ * seg.Geta2().Getx() + b_ * seg.Geta2().Gety() + c_;
+    float k1 = a_ * seg.Geta1().Getx() + b_ * seg.Geta1().Gety() + c_;
+    float k2 = a_ * seg.Geta2().Getx() + b_ * seg.Geta2().Gety() + c_;
     return (k1 * k2 <= 0);
   }
 

@@ -5,16 +5,16 @@
 
 namespace geometry {
   Point::Point() = default;
-  Point::Point(const int64_t& x, const int64_t& y) {
+  Point::Point(const float& x, const float& y) {
     x_ = x;
     y_ = y;
   }
 
-  int64_t Point::Getx() const {
+  float Point::Getx() const {
     return x_;
   }
 
-  int64_t Point::Gety() const {
+  float Point::Gety() const {
     return y_;
   }
 

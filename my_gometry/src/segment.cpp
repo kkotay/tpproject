@@ -42,7 +42,7 @@ namespace geometry {
     return false;
   }
 
-  int64_t Segment::DistPoint(const Point& pon) const {
+  float Segment::DistPoint(const Point& pon) const {
     if ((x_ * (pon.Getx() - a1_.Getx()) + y_ * (pon.Gety() - a1_.Gety())) <= 0) {
       return (pon.Getx() - a1_.Getx()) * (pon.Getx() - a1_.Getx()) +
       (pon.Gety() - a1_.Gety()) * (pon.Gety() - a1_.Gety());

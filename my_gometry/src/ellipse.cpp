@@ -23,7 +23,3 @@ sf::Vector2f Ellipse::getPoint(unsigned int index) const {
   float y = std::sin(angle) * radius_.y;
   return {radius_.x + x, radius_.y + y};
 }
-
-Ellipse& Ellipse::GetShadow(unsigned int) {
-
-}

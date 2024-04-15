@@ -6,13 +6,13 @@ class House : public Object {
  protected:
   sf::Vector2f size_;
   sf::Color color_;
-  void SearchShadow(unsigned  int) const override;
+  void SearchShadow(float) override;
 
  public:
   House() = default;
   House(sf::Vector2f, sf::Vector2f, sf::Color);
-  void draw(sf::RenderWindow&) const override;
-
+  void draw(sf::RenderTexture&) const override;
+  void drawtop(sf::RenderTexture&) const override;
   ~House() = default;
 };
 

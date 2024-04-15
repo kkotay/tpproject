@@ -1,25 +1,25 @@
 #include "../vector.h"
+#include "point.h"
 
 namespace geometry {
-  Vector::Vector(int64_t x, int64_t y) : x_(x), y_(y) {
+  Vector::Vector(float x, float y) : x_(x), y_(y) {
   }
 
-  Vector::Vector(const Point& a, const Point& b) : x_(b.Getx() - a.Getx()), y_(b.Gety() - a.Gety()) {
-  }
+  Vector::Vector(const Point& a, const Point& b) : x_(b.Getx() - a.Getx()), y_(b.Gety() - a.Gety()) {}
 
-  int64_t Vector::Getx() const {
+  float Vector::Getx() const {
     return x_;
   }
 
-  int64_t Vector::Gety() const {
+  float Vector::Gety() const {
     return y_;
   }
 
-  int64_t Vector::Scalar(const Vector& b) const {
+  float Vector::Scalar(const Vector& b) const {
     return (x_ * b.Getx() + y_ * b.Gety());
   }
 
-  int64_t Vector::Vectornoe(const Vector& b) const {
+  float Vector::Vectornoe(const Vector& b) const {
     return (x_ * b.Gety() - y_ * b.Getx());
   }
 
@@ -31,22 +31,22 @@ namespace geometry {
     return *(this) + (-b);
   }
 
-  Vector& Vector::operator*=(int64_t value) {
+  Vector& Vector::operator*=(float value) {
     x_ *= value;
     y_ *= value;
     return *this;
   }
 
-  Vector& Vector::operator/=(int64_t value) {
+  Vector& Vector::operator/=(float value) {
     *this *= (1 / value);
     return *this;
   }
 
-  Vector Vector::operator*(int64_t val) const {
+  Vector Vector::operator*(float val) const {
     return Vector(x_ * val, y_ * val);
   }
 
-  Vector Vector::operator/(int64_t val) const {
+  Vector Vector::operator/(float val) const {
     return *this * (1 / val);
   }
 

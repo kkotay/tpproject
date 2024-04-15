@@ -5,14 +5,14 @@
 namespace geometry {
   class Point : public IShape {
    private:
-    int64_t x_ = 0;
-    int64_t y_ = 0;
+    float x_ = 0;
+    float y_ = 0;
 
    public:
     Point();
-    Point(const int64_t&, const int64_t&);  // NOLINT
-    int64_t Getx() const;
-    int64_t Gety() const;
+    Point(const float&, const float&);  // NOLINT
+    float Getx() const;
+    float Gety() const;
     Point& Move(const Vector&) override;
     bool operator==(const Point&) const;
     Point& operator+=(const Vector&);
@@ -20,6 +20,7 @@ namespace geometry {
     bool CrossesSegment(const Segment&) const override;
     Vector operator-(const Point&) const;
     bool operator!=(const Point&) const;
+    ~Point() override = default;
   };
 }
 #endif

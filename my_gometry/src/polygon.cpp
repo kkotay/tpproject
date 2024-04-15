@@ -42,7 +42,7 @@ namespace geometry {
     if (count_ == 0) {
       return false;
     }
-    int64_t x = pon.Getx() + 1;
+    float x = pon.Getx() + 1;
     Ray ray = Ray(pon, Point(x, pon.Gety()));
     int counter = 0;
     size_t curver = 0;
@@ -141,7 +141,7 @@ namespace geometry {
       while (counter >= 2) {
         Point a = realvert[counter - 2];
         Point b = realvert[counter - 1];
-        int64_t vect = Vector(a, b).Vectornoe(Vector(b, vertices_[i]));
+        float vect = Vector(a, b).Vectornoe(Vector(b, vertices_[i]));
         if (vect > 0) {
           --counter;
           insides_[inscounter] = realvert[counter];
@@ -162,7 +162,7 @@ namespace geometry {
       while (counter >= count_ + 1) {
         Point a = realvert[counter - 2];
         Point b = realvert[counter - 1];
-        int64_t vect = Vector(a, b).Vectornoe(Vector(b, insides_[i]));
+        float vect = Vector(a, b).Vectornoe(Vector(b, insides_[i]));
         if (vect > 0) {
           --counter;
           realinside[insidecount_] = realvert[counter];

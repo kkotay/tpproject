@@ -113,7 +113,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmak
 CMAKE_GNUtoMS:BOOL=OFF
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/mydesmos
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/managers
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/mingw64/bin/ld.exe
@@ -264,15 +264,6 @@ VorbisFile_LIB:FILEPATH=C:/SFML/lib/libvorbisfile.a
 Vorbis_LIB:FILEPATH=C:/SFML/lib/libvorbis.a
 
 //Value Computed by CMake
-dacha_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
-
-//Value Computed by CMake
-dacha_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-dacha_SOURCE_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha
-
-//Value Computed by CMake
 managers_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
 
 //Value Computed by CMake
@@ -280,15 +271,6 @@ managers_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 managers_SOURCE_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha
-
-//Value Computed by CMake
-mydesmos_BINARY_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug
-
-//Value Computed by CMake
-mydesmos_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-mydesmos_SOURCE_DIR:STATIC=C:/Users/kkotay/CLionProjects/dacha
 
 
 ########################

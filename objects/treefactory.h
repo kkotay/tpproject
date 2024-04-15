@@ -1,8 +1,8 @@
 #ifndef DACHA_TREEFACTORY_H
 #define DACHA_TREEFACTORY_H
-#include "cedarfactory.cpp"
-#include "applefactory.cpp"
-#include "firfactory.cpp"
+#include "cedarfactory.h"
+#include "applefactory.h"
+#include "firfactory.h"
 
 enum treetype {
   cedar,
@@ -12,13 +12,13 @@ enum treetype {
 
 class TreeFactory {
  protected:
+  std::vector<Object*> trees_;
   CedarFactory cedarmaker;
   AppleFactory applemaker;
   FirFactory firmaker;
  public:
-  Tree &CreateTree(treetype, sf::Vector2f &);
-
-  template<class T>
-  std::vector <T> &GetTrees(treetype = fir);
+  void CreateTree(treetype, sf::Vector2f&);
+  std::vector<Object*>& GetTrees();
+  void Clear();
 };
 #endif

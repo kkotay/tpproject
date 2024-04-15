@@ -6,21 +6,21 @@
 namespace geometry {
   class Line : public IShape {
   private:
-    int64_t a_ = 0;
-    int64_t b_ = 0;
-    int64_t c_ = 0;
+    float a_ = 0;
+    float b_ = 0;
+    float c_ = 0;
     Point pon1_;
     Point pon2_;
 
   public:
     explicit Line();
     explicit Line(const Point&, const Point&) ;
-    int64_t Geta() const;
-    int64_t Getb() const;
-    int64_t Getc() const;
+    float Geta() const;
+    float Getb() const;
+    float Getc() const;
     Point Getpon1() const;
     Point Getpon2() const;
-    int64_t DistPoint(const Point& pon) const;
+    float DistPoint(const Point& pon) const;
     Line& Move(const Vector&) override;
     bool ContainsPoint(const Point&) const override;
     bool CrossesSegment(const Segment&) const override;
