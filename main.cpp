@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include "managers/cottegemanager.h"
+#include "managers/CottegeManager.h"
 
 int main() {
   sf::RenderTexture window{};
   window.create(800, 640);
   window.clear(sf::Color::White);
   CottageManager dacha(window);
-  dacha.Run();
+  dacha.run();
   return 0;
 }
