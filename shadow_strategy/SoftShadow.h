@@ -8,7 +8,7 @@
 
 class SoftShadow {
 public:
-  std::vector<sf::ConvexShape> SearchShadow(std::vector<Object*>&, float angle);
+  std::vector<sf::ConvexShape> SearchShadow(std::vector<Object*>&, float);
 };
 
 #endif

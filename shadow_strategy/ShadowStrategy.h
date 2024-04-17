@@ -10,7 +10,7 @@ class ShadowStrategy {
   SoftShadow soft_shadow_{};
 
  public:
-  std::vector<sf::ConvexShape> SearchShadow(std::vector<Object*>&, float angle);
+  std::vector<sf::ConvexShape> SearchShadow(std::vector<Object*>&, float);
 };
 
 #endif
