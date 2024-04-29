@@ -1,19 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include "managers/cottegemanager.h"
+#include "managers/CottegeManager.h"
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(800,600,32), "Dacha", sf::Style::Default);
+  sf::RenderTexture window{};
+  window.create(800, 640);
   window.clear(sf::Color::White);
-  sf::Event e;
-  bool running = true;
-  while(running) {
-    while(window.pollEvent(e)) {
-      if(e.type == sf::Event::Closed) {
-        window.close();
-        return 0;
-      }
-    }
-    window.display();
-  }
+  CottageManager dacha(window);
+  dacha.run();
   return 0;
 }
