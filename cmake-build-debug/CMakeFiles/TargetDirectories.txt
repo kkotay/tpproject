@@ -1,0 +1,9 @@
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/dacha.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/my_geometry/CMakeFiles/my_geometry.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/my_geometry/CMakeFiles/edit_cache.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/my_geometry/CMakeFiles/rebuild_cache.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/objects/CMakeFiles/objects.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/objects/CMakeFiles/edit_cache.dir
+C:/Users/kkotay/CLionProjects/dacha/cmake-build-debug/objects/CMakeFiles/rebuild_cache.dir
