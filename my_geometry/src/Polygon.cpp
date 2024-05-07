@@ -107,101 +107,84 @@ namespace geometry {
     return point1.getX() > point2.getX();
   }
 
+  static bool AngleBigger(const Point& vec1, const Point& vec2) {
+    int64_t vectornoe = vec1.getX() * vec2.getY() - vec1.getY() * vec2.getX();
+    if (vectornoe != 0) {
+      return vectornoe < 0;
+    }
+    return vec1.getX() * vec1.getX() + vec1.getY() * vec1.getY() < vec2.getY() * vec2.getY() + vec2.getX() * vec2.getX();
+  }
+
   void Polygon::ConvexShell() {
-    if (insidecount_ < 3) {
-      insidecount_ = 0;
-      count_ = 0;
-      return;
-    }
-    vertices_.resize(insidecount_ + 1);
-    for (size_t i = 0; i < insidecount_; ++i) {
-      vertices_[i] = insides_[i];
-    }
-    insides_.clear();
-    count_ = insidecount_;
-    insides_.resize(count_ + 1);
     std::sort(vertices_.begin(), vertices_.end(), PointSorterUpLess);
-    Point firts_point = vertices_[0];
-    std::vector<Point> real_vertices(count_ + 1);
+    Point firstpon = vertices_[0];
+    std::vector<Point> ponoutsame(count_);
+    std::vector<Point> realvert(count_);
+    size_t count = 1;
+    ponoutsame[0] = firstpon;
+    for (size_t i = 1; i < count_; ++i) {
+      if (vertices_[i] != ponoutsame[count - 1]) {
+        ponoutsame[count] = vertices_[i];
+        ++count;
+      }
+    }
+    vertices_.clear();
+    ponoutsame.resize(count);
+    vertices_ = ponoutsame;
+    count_ = count;
+    Move(Vector(firstpon, Point(0, 0)));
+    realvert[0] = vertices_[0];
+    std::sort(vertices_.begin(), vertices_.end(), AngleBigger);
     size_t counter = 1;
-    size_t inside_counter = 0;
-    Move(Vector(firts_point, Point(0, 0)));
-    real_vertices[0] = vertices_[0];
     for (size_t i = 1; i < count_; ++i) {
       while (counter >= 2) {
-        Point a = real_vertices[counter - 2];
-        Point b = real_vertices[counter - 1];
-        float vect = Vector(a, b).VectorProduct(Vector(b, vertices_[i]));
-        if (vect > 0) {
+        if (Vector(realvert[counter - 2], realvert[counter - 1]).VectorProduct(Vector(realvert[counter - 1], vertices_[i])) >= 0) {
           --counter;
-          insides_[inside_counter] = real_vertices[counter];
-          ++inside_counter;
         } else {
           break;
         }
       }
-      real_vertices[counter] = vertices_[i];
+      realvert[counter] = vertices_[i];
       ++counter;
     }
-    std::sort(insides_.begin(), insides_.end(), PointSorterDownHigh);
-    insides_[inside_counter] = real_vertices[0];
-    count_ = counter;
-    std::vector<Point> real_inside(inside_counter);
-    insidecount_ = 0;
-    for (size_t i = 0; i < inside_counter + 1; ++i) {
-      while (counter >= count_ + 1) {
-        Point a = real_vertices[counter - 2];
-        Point b = real_vertices[counter - 1];
-        float vect = Vector(a, b).VectorProduct(Vector(b, insides_[i]));
-        if (vect > 0) {
-          --counter;
-          real_inside[insidecount_] = real_vertices[counter];
-          ++insidecount_;
-        } else {
-          break;
-        }
-      }
-      real_vertices[counter] = insides_[i];
-      ++counter;
-    }
-    --counter;
     vertices_.clear();
-    insides_.clear();
-    vertices_ = real_vertices;
+    realvert.resize(counter);
+    vertices_ = realvert;
     count_ = counter;
-    insides_ = real_inside;
-    Move(Vector(Point(0, 0), firts_point));
+    Move(Vector(Point(0, 0), firstpon));
   }
 
   void Polygon::Shell() {
     count_ = insidecount_;
-    insides_.resize(count_ + 1);
-    std::sort(vertices_.begin(), vertices_.end(), PointSorterUpLess);
+    insides_.resize(count_);
+    std::sort(vertices_.begin(), vertices_.end(), PointSorterUpHigh);
     Point firstpon = vertices_[0];
     Point laspon = vertices_[count_ - 1];
-    std::vector<Point> real_vertices(count_ + 1);
+    std::vector<Point> real_vertices(count_);
     size_t counter = 1;
     size_t inscounter = 0;
     real_vertices[0] = vertices_[0];
     Line main_line(firstpon, laspon);
     for (size_t i = 1; i < count_; ++i) {
       if (main_line.DistPoint(vertices_[i]) >= 0) {
-        if (vertices_[i - 1].getX() != vertices_[i].getX()) {
+        if (real_vertices[counter - 1].getX() != vertices_[i].getX()) {
           real_vertices[counter] = vertices_[i];
           ++counter;
         } else {
-          notshell_[inscounter] = vertices_[i];
           ++inscounter;
         }
       }
     }
+    if (real_vertices[counter - 1] != vertices_[count_ - 1]) {
+      real_vertices[counter] = vertices_[count_ - 1];
+      ++counter;
+    }
     for (size_t i = count_ - 2; i > 0; --i) {
       if (main_line.DistPoint(vertices_[i]) <= 0) {
-        if (vertices_[i - 1].getX() != vertices_[i].getX()) {
+        if (real_vertices[counter - 1].getX() != vertices_[i].getX()) {
           real_vertices[counter] = vertices_[i];
           ++counter;
         } else {
-          notshell_[inscounter] = vertices_[i];
           ++inscounter;
         }
       }
@@ -209,7 +192,6 @@ namespace geometry {
     vertices_.clear();
     count_ = counter;
     vertices_ = real_vertices;
-    notshellcount_ = inscounter;
   }
 
   Polygon::~Polygon() {

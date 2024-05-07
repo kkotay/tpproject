@@ -9,16 +9,21 @@
 
 class ShadowManager {
  protected:
-  std::vector<Object*> objects_;
   std::vector<sf::ConvexShape> allshadow_;
   ShadowStrategy shadow_searcher_;
 
  public:
   ShadowManager() = default;
   std::vector<sf::ConvexShape>& GetAllShadow();
-  explicit ShadowManager(std::vector<Object*>&);
-  void setObjects(std::vector<Object*>&);
-  void SearchShadow(float);
+
+  template<class T>
+  void SearchShadow(float angle, std::vector<T>& objects) {
+    std::vector<sf::ConvexShape> shadow = shadow_searcher_.SearchShadow(objects, angle);
+    for (const auto& i : shadow) {
+      allshadow_.push_back(i);
+    }
+  }
+
   void clear();
   ~ShadowManager() = default;
 };

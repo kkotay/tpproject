@@ -10,7 +10,14 @@ class ShadowStrategy {
   SoftShadow soft_shadow_{};
 
  public:
-  std::vector<sf::ConvexShape> SearchShadow(std::vector<Object*>&, float);
+  template<class T>
+  std::vector<sf::ConvexShape> SearchShadow(std::vector<T>& objects, float angle) {
+    if (angle > 30) {
+      return soft_shadow_.SearchShadow(objects, std::tan(angle));
+    }
+    return hard_shadow_.SearchShadow(objects, std::tan(angle));
+  }
+
 };
 
 #endif

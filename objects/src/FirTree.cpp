@@ -1,6 +1,5 @@
 #include "../FirTree.h"
 
-
 FirTree::FirTree(sf::Vector2f pon, const sf::ConvexShape& crown, sf::Color crowncolor, const sf::ConvexShape& trunk, sf::Color trunkcolor) {
   position_ = pon;
   crown_ = crown;
@@ -14,4 +13,5 @@ FirTree::FirTree(sf::Vector2f pon, const sf::ConvexShape& crown, sf::Color crown
   topview_ = sf::CircleShape(20);
   topview_.setFillColor(crowncolor);
   topview_.setOutlineColor(crowncolor - sf::Color(0, 30, 0));
+  topview_.setPosition(position_ - sf::Vector2f(20, 20));
 }

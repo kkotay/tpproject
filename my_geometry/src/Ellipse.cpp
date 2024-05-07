@@ -1,8 +1,6 @@
 #include "../Ellipse.h"
 
-Ellipse::Ellipse(const sf::Vector2f& radius) : radius_(radius) {
-  update();
-}
+Ellipse::Ellipse(const sf::Vector2f& radius) : radius_(radius) {}
 
 void Ellipse::setRadius(const sf::Vector2f& radius) {
   radius_ = radius;

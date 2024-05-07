@@ -16,7 +16,8 @@ class CottageManager {
                      "'exit' to stop program \n"
                      "'sun angle' with single parameter angle(float): to set position of sun above place \n";
 
-  std::vector<Object*> objects_;
+  std::vector<Tree> trees_;
+  std::vector<House> houses_;
   sf::RenderTexture& window_;
   TreeFactory tree_factory_{};
   HouseFactory house_factory_{};
