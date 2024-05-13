@@ -1,39 +1,30 @@
 cmake_minimum_required(VERSION 3.26)
-project(managers)
+project(dacha)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(my_geometry)
+include_directories(objects)
+include_directories(shadow_strategy)
 include_directories(managers)
-include_directories(my_gometry)
-include_directories(window)
+add_subdirectory("my_geometry")
+add_subdirectory("objects")
 
-add_executable(managers main.cpp
-        objects/src/house.cpp
-        objects/src/tree.cpp
-        objects/src/treefactory.cpp
-        managers/src/cottegemanager.cpp
-        my_gometry/point.h
-        my_gometry/vector.h
-        my_gometry/ray.h
-        my_gometry/line.h
-        my_gometry/polygon.h
-        my_gometry/zone_point.h
-
-        my_gometry/src/vector.cpp
-        my_gometry/src/point.cpp
-        my_gometry/src/ray.cpp
-        my_gometry/src/line.cpp
-        my_gometry/src/polygon.cpp
-        my_gometry/src/zone_point.cpp
-        my_gometry/ellipse.h
-        managers/src/shadowmanager.cpp
-        objects/src/housefactory.cpp
-        managers/src/drawer.cpp
+add_executable(dacha main.cpp
+        shadow_strategy/src/ShadowStrategy.cpp
+        shadow_strategy/src/HardShadow.cpp
+        shadow_strategy/src/SoftShadow.cpp
+        managers/src/ShadowManager.cpp
+        managers/src/Drawer.cpp
+        managers/src/CottegeManager.cpp
 )
+
+target_link_libraries(dacha objects)
+
 
 set(SFML_STATIC_LIBRARIES TRUE)
 set(SFML_DIR C:/SFML/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
 
 include_directories(c:SFML/include)
-target_link_libraries(managers sfml-system sfml-window sfml-graphics sfml-audio)
+target_link_libraries(dacha sfml-system sfml-window sfml-graphics sfml-audio)
