@@ -3,7 +3,7 @@
 #include "Object.h"
 
 class Bush : public Object {
- private:
+protected:
   sf::Vector2f position_;
   sf::ConvexShape bush_{};
   sf::CircleShape topview_{};

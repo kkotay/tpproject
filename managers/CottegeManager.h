@@ -16,7 +16,7 @@ class CottageManager {
                      "'show' with parameter(top, front) to save image with view from top or front \n"
                      "'clear' to delete all added objects \n"
                      "'exit' to stop program \n"
-                     "'sun angle' with single parameter angle(float): to set position of sun above place \n";
+                     "'angle' with single parameter angle(float): to set position of sun above place \n";
 
   std::vector<Tree> trees_;
   std::vector<House> houses_;

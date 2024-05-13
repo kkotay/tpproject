@@ -15,9 +15,7 @@ add_library(objects
         src/AppleFactory.cpp
         src/TreeFactory.cpp
         src/Bush.cpp
-        Bush.h
         src/BushFactory.cpp
-        BushFactory.h
 )
 
 target_link_libraries(objects my_geometry)

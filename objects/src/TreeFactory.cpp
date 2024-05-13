@@ -1,6 +1,6 @@
 #include "../TreeFactory.h"
 
-Tree TreeFactory::MakeTree (TreeType tree, sf::Vector2f& position) {
+Tree TreeFactory::MakeTree(TreeType tree, sf::Vector2f& position) {
   switch (tree) {
     case cedar:
       return cedarmaker.MakeCedarTree(position);
