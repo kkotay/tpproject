@@ -19,6 +19,7 @@ class Tree : public Object {
   Tree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color, float);
   void draw(sf::RenderTexture&) const override;
   void drawTop(sf::RenderTexture&) const override;
+  sf::ConvexShape getHardShadow(float) override;
   void SearchShadow(float) override;
   ~Tree() = default;
 };

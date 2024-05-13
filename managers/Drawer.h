@@ -26,6 +26,8 @@ class Drawer {
 
  public:
   Drawer() = default;
+  void drawTopWindow(sf::RenderTexture&);
+  void drawFrontWindow(sf::RenderTexture&);
   void drawSimple(sf::RenderTexture&, std::vector<sf::ConvexShape>&);
 
   template<class T>

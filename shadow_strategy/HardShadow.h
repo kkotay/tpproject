@@ -12,14 +12,12 @@ class HardShadow {
   std::vector<sf::ConvexShape> SearchShadow(std::vector<T>& objects, float tg) {
     std::vector<sf::ConvexShape> allshadow;
     for(auto & object : objects) {
-      object.SearchShadow(tg);
-      sf::ConvexShape shad = object.getShadow();
+      sf::ConvexShape shad = object.getHardShadow(tg);
       std::vector<geometry::Point> vertices;
       for (size_t i = 0; i < shad.getPointCount(); ++i) {
         vertices.emplace_back(shad.getPoint(i).x, shad.getPoint(i).y);
       }
       geometry::Polygon polygon(vertices);
-      polygon.Shell();
       sf::ConvexShape shadow;
       shadow.setPointCount(polygon.getCount());
       for (size_t i = 0; i < polygon.getCount(); i++) {
@@ -30,7 +28,6 @@ class HardShadow {
     }
     return allshadow;
   }
-
 };
 
 #endif

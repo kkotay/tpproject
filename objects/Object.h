@@ -16,6 +16,7 @@ class Object {
   sf::ConvexShape& getShadow() {
     return shadow_;
   }
+  virtual sf::ConvexShape getHardShadow(float) = 0;
   virtual void SearchShadow(float) = 0;
   virtual void draw(sf::RenderTexture&) const{};
   virtual void drawTop(sf::RenderTexture&) const{};

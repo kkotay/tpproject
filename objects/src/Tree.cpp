@@ -1,8 +1,7 @@
 #include "../Tree.h"
 
-#include <iostream>
 
-Tree::Tree(const sf::Vector2f position, const sf::ConvexShape& crown, const sf::Color crowncolor, const sf::ConvexShape& trunk, const sf::Color trunkcolor, float rad) {
+Tree::Tree(const sf::Vector2f position, const sf::ConvexShape& crown, const sf::Color crowncolor, const sf::ConvexShape& trunk, const sf::Color trunkcolor, float radius) {
   position_ = position;
   crown_ = crown;
   crown_.setPosition(position_);
@@ -10,9 +9,11 @@ Tree::Tree(const sf::Vector2f position, const sf::ConvexShape& crown, const sf::
   trunk_ = trunk;
   trunk_.setPosition(position_);
   trunk_.setFillColor(trunkcolor);
-  topview_ = sf::CircleShape(rad);
+  topview_ = sf::CircleShape(radius);
   topview_.setFillColor(crowncolor);
   topview_.setPosition(position_);
+  topview_.setOutlineThickness(2);
+  topview_.setOutlineColor(crowncolor - sf::Color(0, 30, 0));
 }
 
 void Tree::setCrownColor(sf::Color color) {
@@ -71,7 +72,30 @@ void Tree::SearchShadow(float tg) {
     for (size_t j = 0; j < count; ++j) {
       shadow_.setPoint(trunk_.getPointCount() + i * count + j,
                        (sf::Vector2f(circle.getPoint(j).x + position_.x - radius,
-                           position_.y + circle.getPoint(j).y + (crown_.getPoint(i).y - 80) / tg)));
+                           position_.y + circle.getPoint(j).y - radius + (crown_.getPoint(i).y - 80) / tg)));
     }
   }
+}
+
+sf::ConvexShape Tree::getHardShadow(float tg) {
+  sf::ConvexShape shadow;
+  if (tg == 0) {
+    shadow.setPointCount(4);
+    for (size_t i = 0; i < trunk_.getPointCount(); ++i) {
+      if (trunk_.getPoint(i).y == 80) {
+        shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 80)));
+      } else {
+        shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 640)));
+      }
+    }
+    return shadow;
+  }
+  shadow.setPointCount(trunk_.getPointCount() + crown_.getPointCount());
+  for (size_t i = 0; i < trunk_.getPointCount(); ++i) {
+    shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, position_.y + (trunk_.getPoint(i).y - 80) / tg)));
+  }
+  for (size_t i = 0; i < crown_.getPointCount(); ++i) {
+    shadow.setPoint(i + trunk_.getPointCount(), (sf::Vector2f(crown_.getPoint(i).x, position_.y + (crown_.getPoint(i).y - 80) / tg)));
+  }
+  return shadow;
 }

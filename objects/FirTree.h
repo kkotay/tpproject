@@ -5,7 +5,7 @@
 class FirTree : public Tree {
  public:
   FirTree() = default;
-  FirTree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color);
+  FirTree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color, float);
   ~FirTree() = default;
 };
 

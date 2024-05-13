@@ -5,7 +5,7 @@
 class CedarTree : public Tree {
  public:
   CedarTree() = default;
-  CedarTree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color);
+  CedarTree(sf::Vector2f, const sf::ConvexShape&, sf::Color, const sf::ConvexShape&, sf::Color, float);
   ~CedarTree() = default;
 };
 

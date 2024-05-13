@@ -108,8 +108,8 @@ namespace geometry {
   }
 
   static bool AngleBigger(const Point& vec1, const Point& vec2) {
-    int64_t vectornoe = vec1.getX() * vec2.getY() - vec1.getY() * vec2.getX();
-    if (vectornoe != 0) {
+    float vectornoe = vec1.getX() * vec2.getY() - vec1.getY() * vec2.getX();
+    if (vectornoe > 0.00001 || vectornoe < -0.00001) {
       return vectornoe < 0;
     }
     return vec1.getX() * vec1.getX() + vec1.getY() * vec1.getY() < vec2.getY() * vec2.getY() + vec2.getX() * vec2.getX();
@@ -156,6 +156,7 @@ namespace geometry {
 
   void Polygon::Shell() {
     count_ = insidecount_;
+    std::vector<int> used(count_, 0);
     insides_.resize(count_);
     std::sort(vertices_.begin(), vertices_.end(), PointSorterUpHigh);
     Point firstpon = vertices_[0];
@@ -167,26 +168,21 @@ namespace geometry {
     Line main_line(firstpon, laspon);
     for (size_t i = 1; i < count_; ++i) {
       if (main_line.DistPoint(vertices_[i]) >= 0) {
-        if (real_vertices[counter - 1].getX() != vertices_[i].getX()) {
-          real_vertices[counter] = vertices_[i];
-          ++counter;
-        } else {
-          ++inscounter;
-        }
+        real_vertices[counter] = vertices_[i];
+        ++counter;
+        used[i] = 1;
       }
     }
-    if (real_vertices[counter - 1] != vertices_[count_ - 1]) {
+    if (used[count_ - 1] == 0) {
       real_vertices[counter] = vertices_[count_ - 1];
       ++counter;
     }
     for (size_t i = count_ - 2; i > 0; --i) {
-      if (main_line.DistPoint(vertices_[i]) <= 0) {
-        if (real_vertices[counter - 1].getX() != vertices_[i].getX()) {
-          real_vertices[counter] = vertices_[i];
-          ++counter;
-        } else {
-          ++inscounter;
-        }
+      if (used[i] == 0 && main_line.DistPoint(vertices_[i]) <= 0) {
+        real_vertices[counter] = vertices_[i];
+        ++counter;
+      } else {
+        ++inscounter;
       }
     }
     vertices_.clear();
