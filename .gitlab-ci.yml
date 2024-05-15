@@ -9,6 +9,9 @@ build-job:
   tags:
     - common
   script:
+    - apt-get update
+    - apt-get install -y g++ make cmake
+    - apt-get install -y libsfml-dev
     - echo "Compiling the code..."
     - ./run.sh runned
     - echo "Compile complete."
