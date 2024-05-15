@@ -5,10 +5,10 @@ House::House(sf::Vector2f pos, sf::Vector2f size, sf::Color color) {
   size_ = size;
   color_ = color;
   roof_.setPointCount(4);
-  roof_.setPoint(0, sf::Vector2f(position_ + sf::Vector2f(-5, size_.y - 5)));
-  roof_.setPoint(1, sf::Vector2f(position_ + sf::Vector2f(20, size_.y + 25)));
-  roof_.setPoint(2, sf::Vector2f(position_ + sf::Vector2f(-20 + size_.x, size_.y + 25)));
-  roof_.setPoint(3, sf::Vector2f(position_ + sf::Vector2f(5 + size_.x, size_.y - 5)));
+  roof_.setPoint(0, sf::Vector2f(position_ + sf::Vector2f(-5, size_.y - 5 - position_.y + 95)));
+  roof_.setPoint(1, sf::Vector2f(position_ + sf::Vector2f(20, size_.y + 25 - position_.y + 95)));
+  roof_.setPoint(2, sf::Vector2f(position_ + sf::Vector2f(-20 + size_.x, size_.y + 25 - position_.y + 95)));
+  roof_.setPoint(3, sf::Vector2f(position_ + sf::Vector2f(5 + size_.x, size_.y - 5 - position_.y + 95)));
   roof_.setFillColor(sf::Color(166, 61, 32));
   roof_.setOutlineColor(sf::Color(0, 0, 0));
   roof_.setOutlineThickness(2);

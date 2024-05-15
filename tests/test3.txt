@@ -1,0 +1,8 @@
+angle 45
+create tree cedar 400 100
+create tree fir 100 100
+create tree appletree 200 200
+create house 300 200
+create bush 150 100
+show top
+exit

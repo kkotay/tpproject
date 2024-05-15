@@ -1,0 +1,4 @@
+create tree fir 100 100
+create tree appletree 200 200
+show top
+exit

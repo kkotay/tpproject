@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.22.1)
 project(dacha)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -21,10 +21,8 @@ add_executable(dacha main.cpp
 
 target_link_libraries(dacha objects)
 
-
-set(SFML_STATIC_LIBRARIES TRUE)
-set(SFML_DIR C:/SFML/lib/cmake/SFML)
+set(SFML_DIR /usr/include/SFML/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
 
-include_directories(c:SFML/include)
+include_directories(/usr/include/SFML)
 target_link_libraries(dacha sfml-system sfml-window sfml-graphics sfml-audio)

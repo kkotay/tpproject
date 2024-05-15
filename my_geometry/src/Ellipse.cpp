@@ -16,7 +16,7 @@ size_t Ellipse::getPointCount() const {
 }
 
 sf::Vector2f Ellipse::getPoint(unsigned int index) const {
-  float angle = index * 2 * pi / getPointCount() - pi / 2;
+  float angle = static_cast<float>(index) * 2 * pi / static_cast<float>(getPointCount()) - pi / 2;
   float x = std::cos(angle) * radius_.x;
   float y = std::sin(angle) * radius_.y;
   return {radius_.x + x, radius_.y + y};

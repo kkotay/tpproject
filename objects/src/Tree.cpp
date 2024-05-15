@@ -1,5 +1,5 @@
 #include "../Tree.h"
-
+#include "iostream"
 
 Tree::Tree(const sf::Vector2f position, const sf::ConvexShape& crown, const sf::Color crowncolor, const sf::ConvexShape& trunk, const sf::Color trunkcolor, float radius) {
   position_ = position;
@@ -51,7 +51,7 @@ void Tree::SearchShadow(float tg) {
     shadow_.setPointCount(4);
     for (size_t i = 0; i < trunk_.getPointCount(); ++i) {
       if (trunk_.getPoint(i).y == 80) {
-        shadow_.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 80)));
+        shadow_.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, position_.y)));
       } else {
         shadow_.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 640)));
       }
@@ -83,7 +83,7 @@ sf::ConvexShape Tree::getHardShadow(float tg) {
     shadow.setPointCount(4);
     for (size_t i = 0; i < trunk_.getPointCount(); ++i) {
       if (trunk_.getPoint(i).y == 80) {
-        shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 80)));
+        shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, position_.y)));
       } else {
         shadow.setPoint(i, (sf::Vector2f(trunk_.getPoint(i).x, 640)));
       }
