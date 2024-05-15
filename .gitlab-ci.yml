@@ -24,7 +24,7 @@ unit-test-job:
     - common
   script:
     - ls
-    - cd ./test
+    - cd ./tests
     - ./test.sh
   artifacts:
     expire_in: 1 days
