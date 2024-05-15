@@ -18,9 +18,12 @@ build-job:
 
 unit-test-job:
   stage: test
+  dependencies:
+    - build-job
   tags:
     - common
   script:
+    - ls
     - cd ./test
     - ./test.sh
   artifacts:
