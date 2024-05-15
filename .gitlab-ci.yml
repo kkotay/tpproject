@@ -6,6 +6,8 @@ stages:
 
 build-job:
   stage: build
+  tags:
+    - common
   script:
     - echo "Compiling the code..."
     - ./run.sh runned
@@ -13,6 +15,12 @@ build-job:
 
 unit-test-job:
   stage: test
+  tags:
+    - common
   script:
     - cd ./test
     - ./test.sh
+  artifacts:
+    expire_in: 1 days
+    paths:
+      - dacha_build/*.png
