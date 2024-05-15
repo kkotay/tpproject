@@ -23,7 +23,6 @@ unit-test-job:
   tags:
     - common
   script:
-    - ls
     - cd ./tests
     - ./test.sh
   artifacts:
